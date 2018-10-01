@@ -105,10 +105,14 @@ function Highlight(target) {
 
     //concatenate adjacent textnodes.
     NormalizeTextNodes(bodyElem);
+
 }
 
 
 
+//文字列に含まれるエスケープが必要な文字をエスケープする。
 function RegexEscape(string) {
     return string.replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&'); // $&はマッチした部分文字列全体を意味します
 }
+
+
