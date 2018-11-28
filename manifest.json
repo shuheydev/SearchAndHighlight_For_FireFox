@@ -49,8 +49,9 @@
         },
         "command_toggleHighlightNow": {
             "suggested_key": {
-                "default": "Ctrl+Alt+L"
-            }
+                "default": "Alt+L"
+            },
+            "description":"Toggle Highlight"
         }
     },
     "permissions": [

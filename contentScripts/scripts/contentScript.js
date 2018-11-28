@@ -3,7 +3,7 @@ if (!("browser" in window)) {
     window.browser = chrome;
 }
 
-var IsHighlight=false;
+var IsHighlight = false;
 
 //EventHandler when page loaded.
 function initOnLoadCompleted(e) {
@@ -12,22 +12,20 @@ function initOnLoadCompleted(e) {
         switch (message.command) {
             case 'search'://'search' button clicked.
                 Highlight(message.target);
-                IsHighlight=true;
+                IsHighlight = true;
                 break;
             case 'clear'://'clear' button clicked.
                 Highlight("");
-                IsHighlight=false;
+                IsHighlight = false;
                 break;
             case 'toggle'://'Ctrl+Alt+L'Shortcut
-                if(IsHighlight)
-                {
+                if (IsHighlight) {
                     Highlight("");
-                    IsHighlight=false;
+                    IsHighlight = false;
                 }
-                else
-                {
+                else {
                     Highlight(message.target);
-                    IsHighlight=true;
+                    IsHighlight = true;
                 }
                 break;
         }
