@@ -4,6 +4,7 @@ if (!("browser" in window)) {
 }
 
 //設定されているショートカットをすべて出力する。
+//テスト用。
 var gettingAllCommands = browser.commands.getAll();
 gettingAllCommands.then((commands) => {
     for (let command of commands) {
@@ -12,10 +13,17 @@ gettingAllCommands.then((commands) => {
 });
 
 
-//２つ目のショートカットを試してみる
+
+//popup.jsと同じようにcontentにメッセージを送ってハイライトさせる。
+//ただし、こちらはtextareaを持っていないので、LocalStorageから引っ張ってくること。
+function sendSearchMessage(tabs) {
+    let targetString = localStorage.getItem('target');
+    browser.tabs.sendMessage(tabs[0].id, { command: "toggle", target: targetString });
+}
 browser.commands.onCommand.addListener(function (command) {
-    if (command === "command_highlightNow") {
-        console.log("いえーい");
+    if (command === "command_toggleHighlightNow") {
+        // console.log("いえーい");
+        browser.tabs.query({ active: true, currentWindow: true }, sendSearchMessage);
     }
 });
 

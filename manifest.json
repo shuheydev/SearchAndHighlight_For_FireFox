@@ -36,8 +36,10 @@
             "run_at": "document_end"
         }
     ],
-    "background":{
-        "scripts":["background/background.js"]
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
     },
     "commands": {
         "_execute_browser_action": {
@@ -45,9 +47,9 @@
                 "default": "Ctrl+Shift+L"
             }
         },
-        "command_highlightNow":{
-            "suggested_key":{
-                "default":"Ctrl+Shift+O"
+        "command_toggleHighlightNow": {
+            "suggested_key": {
+                "default": "Ctrl+Alt+L"
             }
         }
     },

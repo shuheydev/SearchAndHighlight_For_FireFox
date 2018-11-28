@@ -3,6 +3,7 @@ if (!("browser" in window)) {
     window.browser = chrome;
 }
 
+var IsHighlight=false;
 
 //EventHandler when page loaded.
 function initOnLoadCompleted(e) {
@@ -11,9 +12,23 @@ function initOnLoadCompleted(e) {
         switch (message.command) {
             case 'search'://'search' button clicked.
                 Highlight(message.target);
+                IsHighlight=true;
                 break;
             case 'clear'://'clear' button clicked.
                 Highlight("");
+                IsHighlight=false;
+                break;
+            case 'toggle':
+                if(IsHighlight)
+                {
+                    Highlight("");
+                    IsHighlight=false;
+                }
+                else
+                {
+                    Highlight(message.target);
+                    IsHighlight=true;
+                }
                 break;
         }
     });
