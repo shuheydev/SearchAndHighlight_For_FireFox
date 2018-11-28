@@ -5,12 +5,12 @@ if (!("browser" in window)) {
 
 //設定されているショートカットをすべて出力する。
 //テスト用。
-var gettingAllCommands = browser.commands.getAll();
-gettingAllCommands.then((commands) => {
-    for (let command of commands) {
-        console.log(command);
-    }
-});
+// var gettingAllCommands = browser.commands.getAll();
+// gettingAllCommands.then((commands) => {
+//     for (let command of commands) {
+//         console.log(command);
+//     }
+// });
 
 
 
@@ -22,7 +22,6 @@ function sendSearchMessage(tabs) {
 }
 browser.commands.onCommand.addListener(function (command) {
     if (command === "command_toggleHighlightNow") {
-        // console.log("いえーい");
         browser.tabs.query({ active: true, currentWindow: true }, sendSearchMessage);
     }
 });
