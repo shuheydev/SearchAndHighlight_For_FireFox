@@ -36,10 +36,18 @@
             "run_at": "document_end"
         }
     ],
+    "background":{
+        "scripts":["background/background.js"]
+    },
     "commands": {
         "_execute_browser_action": {
             "suggested_key": {
                 "default": "Ctrl+Shift+L"
+            }
+        },
+        "command_highlightNow":{
+            "suggested_key":{
+                "default":"Ctrl+Shift+O"
             }
         }
     },
